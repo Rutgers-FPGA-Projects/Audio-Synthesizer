@@ -1,0 +1,4 @@
+Audio-Synthesizer
+=================
+
+We intend to create an audio synthesizer. The sound will be sent out through line out or headphone jacks on the Altera board. We will start out simple and add to it as time permits. To begin with, we will get different notes played when different buttons are pressed on the board. The switches could be used to change pitch so the 4 buttons on the board can be used for more than 4 notes. Then, we can try creating more than just simple notes. We can add filters, possibly use line in or mic input, and so on. If we have a lot of extra time, we can try creating a MIDI file interpreter instead of using buttons as input. Then, we could try different input methods. That could include taking apart an old electric mini­keyboard and wiring it to inputs on the board, or any number of other possibilities.
