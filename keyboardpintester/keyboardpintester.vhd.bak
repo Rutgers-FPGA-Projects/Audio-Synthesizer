@@ -1,0 +1,16 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY keyboardpintester IS
+PORT( GPIO : inout STD_LOGIC_VECTOR(11 DOWNTO 0)
+	SW : in STD_LOGIC_VECTOR(11 DOWNTO 0)
+	LEDR : out STD_LOGIC_VECTOR(11 DOWNTO 0) );
+END keyboardpintester;
+ARCHITECTURE str OF keyboardpintester IS
+BEGIN
+	PROCESS (SW)
+	BEGIN
+		GPIO <= (NOT SW) ? '1' : 'z';
+		LEDR <= (SW) ? GPIO : '0';
+	END PROCESS;
+END str;
