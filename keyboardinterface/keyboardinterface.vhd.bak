@@ -1,0 +1,32 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY keyboardinterface IS
+PORT( GPIO : inout STD_LOGIC_VECTOR(11 DOWNTO 0);
+		CLOCK_50 : in STD_LOGIC;
+		KEYBOARD : out STD_LOGIC_VECTOR(31 DOWNTO 0) );
+END keyboardinterface;
+
+ARCHITECTURE str OF keyboardinterface IS
+	SIGNAL tempclock : STD_LOGIC;
+	SIGNAL count : INTEGER RANGE 0 TO 249999 := 0; --for creating lower freq clock
+	SIGNAL count2 : INTEGER RANGE 0 TO 5 := 0; --for cycling which keys are being tested
+BEGIN
+	--first create a 100 hz clock on tempclock
+	PROCESS(CLOCK_50)
+	BEGIN
+		IF rising_edge(CLOCK_50) THEN
+			IF (count = 249999) THEN
+				tempclock <= NOT tempclock;
+				count <= 0;
+			ELSE
+				count <= count + 1;
+			END IF;
+		END IF;
+	END PROCESS;
+	
+	PROCESS(tempclock)
+	BEGIN
+		
+	END PROCESS;
+END str;
