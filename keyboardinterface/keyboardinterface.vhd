@@ -1,8 +1,9 @@
 --assuming there are 8 select lines and 4 read lines
---0-7 are input, 8-11 are output
+--7-0 are input, 8-11 are output (in order of left most to right most keys)
 --pin numbers for gpio and keyboard are TEMPORARY and untested
 --must use pin tester software to determine correct pins
 --based on above assumptions, and using 100 hz clock, it will check each key 6 times a second
+--KEYBOARD(0) is F3, KEYBOARD(31) is C6
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
@@ -36,76 +37,39 @@ BEGIN
 		IF rising_edge(tempclock) THEN
 			CASE count2 IS
 				WHEN 0 =>
-					GPIO(0) <= '1'; --set first input pin high
+					GPIO(0) <= '0';
 					GPIO(1) <= '0';
 					GPIO(2) <= '0';
 					GPIO(3) <= '0';
 					GPIO(4) <= '0';
 					GPIO(5) <= '0';
 					GPIO(6) <= '0';
-					GPIO(7) <= '0';
+					GPIO(7) <= '1'; --set first input pin high
 				WHEN 1 => --then read output pins
-					KEYBOARD(0) <= GPIO(8);
-					KEYBOARD(1) <= GPIO(9);
-					KEYBOARD(2) <= GPIO(10);
-					KEYBOARD(3) <= GPIO(11);
+					IF (GPIO(8) = '1') THEN KEYBOARD(0) <= '1'; ELSE KEYBOARD(0) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(1) <= '1'; ELSE KEYBOARD(1) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(2) <= '1'; ELSE KEYBOARD(2) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(3) <= '1'; ELSE KEYBOARD(3) <= '0'; END IF;
+					--original code doesnt work because keyboard needs to act as a register to remember values, so if statements are required
+					--KEYBOARD(0) <= '1' WHEN GPIO(8) ELSE '0';
+					--KEYBOARD(1) <= '1' WHEN GPIO(9) ELSE '0';
+					--KEYBOARD(2) <= '1' WHEN GPIO(10) ELSE '0';
+					--KEYBOARD(3) <= '1' WHEN GPIO(11) ELSE '0';
 				WHEN 2 =>
 					GPIO(0) <= '0';
-					GPIO(1) <= '1'; --set second input pin high
+					GPIO(1) <= '0';
 					GPIO(2) <= '0';
 					GPIO(3) <= '0';
 					GPIO(4) <= '0';
 					GPIO(5) <= '0';
-					GPIO(6) <= '0';
+					GPIO(6) <= '1'; --set second input pin high
 					GPIO(7) <= '0';
 				WHEN 3 => --then read output pins
-					KEYBOARD(4) <= GPIO(8);
-					KEYBOARD(5) <= GPIO(9);
-					KEYBOARD(6) <= GPIO(10);
-					KEYBOARD(7) <= GPIO(11);
+					IF (GPIO(8) = '1') THEN KEYBOARD(4) <= '1'; ELSE KEYBOARD(4) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(5) <= '1'; ELSE KEYBOARD(5) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(6) <= '1'; ELSE KEYBOARD(6) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(7) <= '1'; ELSE KEYBOARD(7) <= '0'; END IF;
 				WHEN 4 =>
-					GPIO(0) <= '0';
-					GPIO(1) <= '0';
-					GPIO(2) <= '1';
-					GPIO(3) <= '0';
-					GPIO(4) <= '0';
-					GPIO(5) <= '0';
-					GPIO(6) <= '0';
-					GPIO(7) <= '0';
-				WHEN 5 =>
-					KEYBOARD(8) <= GPIO(8);
-					KEYBOARD(9) <= GPIO(9);
-					KEYBOARD(10) <= GPIO(10);
-					KEYBOARD(11) <= GPIO(11);
-				WHEN 6 =>
-					GPIO(0) <= '0';
-					GPIO(1) <= '0';
-					GPIO(2) <= '0';
-					GPIO(3) <= '1';
-					GPIO(4) <= '0';
-					GPIO(5) <= '0';
-					GPIO(6) <= '0';
-					GPIO(7) <= '0';
-				WHEN 7 =>
-					KEYBOARD(12) <= GPIO(8);
-					KEYBOARD(13) <= GPIO(9);
-					KEYBOARD(14) <= GPIO(10);
-					KEYBOARD(15) <= GPIO(11);
-				WHEN 8 =>
-					GPIO(0) <= '0';
-					GPIO(1) <= '0';
-					GPIO(2) <= '0';
-					GPIO(3) <= '0';
-					GPIO(4) <= '1';
-					GPIO(5) <= '0';
-					GPIO(6) <= '0';
-					GPIO(7) <= '0';
-				WHEN 9 =>
-					KEYBOARD(16) <= GPIO(8);
-					KEYBOARD(17) <= GPIO(9);
-					KEYBOARD(18) <= GPIO(10);
-					KEYBOARD(19) <= GPIO(11);
-				WHEN 10 =>
 					GPIO(0) <= '0';
 					GPIO(1) <= '0';
 					GPIO(2) <= '0';
@@ -114,39 +78,81 @@ BEGIN
 					GPIO(5) <= '1';
 					GPIO(6) <= '0';
 					GPIO(7) <= '0';
-				WHEN 11 =>
-					KEYBOARD(20) <= GPIO(8);
-					KEYBOARD(21) <= GPIO(9);
-					KEYBOARD(22) <= GPIO(10);
-					KEYBOARD(23) <= GPIO(11);
-				WHEN 12 =>
+				WHEN 5 =>
+					IF (GPIO(8) = '1') THEN KEYBOARD(8) <= '1'; ELSE KEYBOARD(8) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(9) <= '1'; ELSE KEYBOARD(9) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(10) <= '1'; ELSE KEYBOARD(10) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(11) <= '1'; ELSE KEYBOARD(11) <= '0'; END IF;
+				WHEN 6 =>
 					GPIO(0) <= '0';
 					GPIO(1) <= '0';
 					GPIO(2) <= '0';
 					GPIO(3) <= '0';
+					GPIO(4) <= '1';
+					GPIO(5) <= '0';
+					GPIO(6) <= '0';
+					GPIO(7) <= '0';
+				WHEN 7 =>
+					IF (GPIO(8) = '1') THEN KEYBOARD(12) <= '1'; ELSE KEYBOARD(12) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(13) <= '1'; ELSE KEYBOARD(13) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(14) <= '1'; ELSE KEYBOARD(14) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(15) <= '1'; ELSE KEYBOARD(15) <= '0'; END IF;
+				WHEN 8 =>
+					GPIO(0) <= '0';
+					GPIO(1) <= '0';
+					GPIO(2) <= '0';
+					GPIO(3) <= '1';
 					GPIO(4) <= '0';
 					GPIO(5) <= '0';
-					GPIO(6) <= '1';
+					GPIO(6) <= '0';
+					GPIO(7) <= '0';
+				WHEN 9 =>
+					IF (GPIO(8) = '1') THEN KEYBOARD(16) <= '1'; ELSE KEYBOARD(16) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(17) <= '1'; ELSE KEYBOARD(17) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(18) <= '1'; ELSE KEYBOARD(18) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(19) <= '1'; ELSE KEYBOARD(19) <= '0'; END IF;
+				WHEN 10 =>
+					GPIO(0) <= '0';
+					GPIO(1) <= '0';
+					GPIO(2) <= '1';
+					GPIO(3) <= '0';
+					GPIO(4) <= '0';
+					GPIO(5) <= '0';
+					GPIO(6) <= '0';
+					GPIO(7) <= '0';
+				WHEN 11 =>
+					IF (GPIO(8) = '1') THEN KEYBOARD(20) <= '1'; ELSE KEYBOARD(20) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(21) <= '1'; ELSE KEYBOARD(21) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(22) <= '1'; ELSE KEYBOARD(22) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(23) <= '1'; ELSE KEYBOARD(23) <= '0'; END IF;
+				WHEN 12 =>
+					GPIO(0) <= '0';
+					GPIO(1) <= '1';
+					GPIO(2) <= '0';
+					GPIO(3) <= '0';
+					GPIO(4) <= '0';
+					GPIO(5) <= '0';
+					GPIO(6) <= '0';
 					GPIO(7) <= '0';
 				WHEN 13 =>
-					KEYBOARD(24) <= GPIO(8);
-					KEYBOARD(25) <= GPIO(9);
-					KEYBOARD(26) <= GPIO(10);
-					KEYBOARD(27) <= GPIO(11);
+					IF (GPIO(8) = '1') THEN KEYBOARD(24) <= '1'; ELSE KEYBOARD(24) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(25) <= '1'; ELSE KEYBOARD(25) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(26) <= '1'; ELSE KEYBOARD(26) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(27) <= '1'; ELSE KEYBOARD(27) <= '0'; END IF;
 				WHEN 14 =>
-					GPIO(0) <= '0';
+					GPIO(0) <= '1';
 					GPIO(1) <= '0';
 					GPIO(2) <= '0';
 					GPIO(3) <= '0';
 					GPIO(4) <= '0';
 					GPIO(5) <= '0';
 					GPIO(6) <= '0';
-					GPIO(7) <= '1';
+					GPIO(7) <= '0';
 				WHEN 15 =>
-					KEYBOARD(28) <= GPIO(8);
-					KEYBOARD(29) <= GPIO(9);
-					KEYBOARD(30) <= GPIO(10);
-					KEYBOARD(31) <= GPIO(11);
+					IF (GPIO(8) = '1') THEN KEYBOARD(28) <= '1'; ELSE KEYBOARD(28) <= '0'; END IF;
+					IF (GPIO(9) = '1') THEN KEYBOARD(29) <= '1'; ELSE KEYBOARD(29) <= '0'; END IF;
+					IF (GPIO(10) = '1') THEN KEYBOARD(30) <= '1'; ELSE KEYBOARD(30) <= '0'; END IF;
+					IF (GPIO(11) = '1') THEN KEYBOARD(31) <= '1'; ELSE KEYBOARD(31) <= '0'; END IF;
 			END CASE;
 			IF (count2 = 15) THEN
 				count2 <= 0;
