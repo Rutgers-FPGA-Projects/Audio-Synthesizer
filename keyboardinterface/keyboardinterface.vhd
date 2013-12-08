@@ -2,7 +2,7 @@
 --7-0 are input, 8-11 are output (in order of left most to right most keys)
 --pin numbers for gpio and keyboard are TEMPORARY and untested
 --must use pin tester software to determine correct pins
---based on above assumptions, and using 100 hz clock, it will check each key 6 times a second
+--based on above assumptions, and using ???? hz clock, it will check each key ???? times a second
 --KEYBOARD(0) is F3, KEYBOARD(31) is C6
 
 LIBRARY ieee;
@@ -11,19 +11,22 @@ USE ieee.std_logic_1164.all;
 ENTITY keyboardinterface IS
 PORT( GPIO : inout STD_LOGIC_VECTOR(11 DOWNTO 0);
 		CLOCK_50 : in STD_LOGIC;
-		KEYBOARD : out STD_LOGIC_VECTOR(31 DOWNTO 0) ); --which keys are being pressed on the keyboard
+		--KEYBOARD : out STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+		LEDR : out STD_LOGIC_VECTOR(17 DOWNTO 0) ); --which keys are being pressed on the keyboard
 END keyboardinterface;
 
 ARCHITECTURE str OF keyboardinterface IS
+	SIGNAL KEYBOARD : STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
 	SIGNAL tempclock : STD_LOGIC;
 	SIGNAL count : INTEGER RANGE 0 TO 249999 := 0; --for creating lower freq clock
 	SIGNAL count2 : INTEGER RANGE 0 TO 15 := 0; --for cycling which keys are being tested, and alternating between setting inputs and outputs in case the key circuit is not "instant" (number of input pins times 2)
 BEGIN
-	--first create a 100 hz clock on tempclock
+	LEDR(17 DOWNTO 0) <= KEYBOARD(31 DOWNTO 14);
+	--first create a ???? hz clock on tempclock
 	PROCESS(CLOCK_50)
 	BEGIN
 		IF rising_edge(CLOCK_50) THEN
-			IF (count = 249999) THEN
+			IF (count = 24999) THEN
 				tempclock <= NOT tempclock;
 				count <= 0;
 			ELSE
@@ -31,6 +34,25 @@ BEGIN
 			END IF;
 		END IF;
 	END PROCESS;
+	
+--	GPIO(0) <= '0';
+--	GPIO(1) <= '0';
+--	GPIO(2) <= '0';
+--	GPIO(3) <= '0';
+--	GPIO(4) <= '0';
+--	GPIO(5) <= '1';
+--	GPIO(6) <= '0';
+--	GPIO(7) <= '0';
+	GPIO(8) <= 'Z';
+	GPIO(9) <= 'Z';
+	GPIO(10) <= 'Z';
+	GPIO(11) <= 'Z';
+--	PROCESS(GPIO(8))
+--	BEGIN
+--		IF (GPIO(8) = '1') THEN LEDR(0) <= '1'; ELSE LEDR(0) <= '0'; END IF;
+--	END PROCESS;
+	--LEDR(0) <= GPIO(8);
+	
 	
 	PROCESS(tempclock)
 	BEGIN
@@ -46,6 +68,7 @@ BEGIN
 					GPIO(6) <= '0';
 					GPIO(7) <= '1'; --set first input pin high
 				WHEN 1 => --then read output pins
+					--GPIO(8) <= 'Z';
 					IF (GPIO(8) = '1') THEN KEYBOARD(0) <= '1'; ELSE KEYBOARD(0) <= '0'; END IF;
 					IF (GPIO(9) = '1') THEN KEYBOARD(1) <= '1'; ELSE KEYBOARD(1) <= '0'; END IF;
 					IF (GPIO(10) = '1') THEN KEYBOARD(2) <= '1'; ELSE KEYBOARD(2) <= '0'; END IF;
