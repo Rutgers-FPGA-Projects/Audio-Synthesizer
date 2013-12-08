@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="synth">
+		<CBX_INST_ENTRY INSTANCE_NAME="|synth|VGA_Audio_PLL:PLL1|altpll:altpll_component" CBX_FILE_NAME="altpll_dul2.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

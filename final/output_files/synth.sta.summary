@@ -1,0 +1,233 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'adio_codec:SY1|LRCK_1X'
+Slack : -7.797
+TNS   : -117.135
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -2.589
+TNS   : -64.904
+
+Type  : Slow 1200mV 85C Model Setup 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : -2.462
+TNS   : -105.270
+
+Type  : Slow 1200mV 85C Model Setup 'keyboardinterface:KB1|tempclock'
+Slack : -1.981
+TNS   : -56.278
+
+Type  : Slow 1200mV 85C Model Setup 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.726
+TNS   : -1.443
+
+Type  : Slow 1200mV 85C Model Setup 'adio_codec:SY1|oAUD_BCK'
+Slack : -0.198
+TNS   : -0.395
+
+Type  : Slow 1200mV 85C Model Hold 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.196
+TNS   : -0.383
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : -0.180
+TNS   : -0.309
+
+Type  : Slow 1200mV 85C Model Hold 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'adio_codec:SY1|oAUD_BCK'
+Slack : 0.404
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'keyboardinterface:KB1|tempclock'
+Slack : 0.404
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'adio_codec:SY1|LRCK_1X'
+Slack : 0.554
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -49.260
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : -1.285
+TNS   : -75.815
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'keyboardinterface:KB1|tempclock'
+Slack : -1.285
+TNS   : -56.540
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'adio_codec:SY1|LRCK_1X'
+Slack : -1.285
+TNS   : -20.560
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'adio_codec:SY1|oAUD_BCK'
+Slack : -1.285
+TNS   : -5.140
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'TD_CLK27'
+Slack : 18.413
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 27.477
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'adio_codec:SY1|LRCK_1X'
+Slack : -7.093
+TNS   : -106.525
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -2.282
+TNS   : -56.039
+
+Type  : Slow 1200mV 0C Model Setup 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : -2.142
+TNS   : -91.173
+
+Type  : Slow 1200mV 0C Model Setup 'keyboardinterface:KB1|tempclock'
+Slack : -1.751
+TNS   : -47.564
+
+Type  : Slow 1200mV 0C Model Setup 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.539
+TNS   : -1.068
+
+Type  : Slow 1200mV 0C Model Setup 'adio_codec:SY1|oAUD_BCK'
+Slack : -0.078
+TNS   : -0.156
+
+Type  : Slow 1200mV 0C Model Hold 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.302
+TNS   : -0.594
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : -0.109
+TNS   : -0.187
+
+Type  : Slow 1200mV 0C Model Hold 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'keyboardinterface:KB1|tempclock'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'adio_codec:SY1|oAUD_BCK'
+Slack : 0.356
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'adio_codec:SY1|LRCK_1X'
+Slack : 0.515
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -49.260
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : -1.285
+TNS   : -75.815
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'keyboardinterface:KB1|tempclock'
+Slack : -1.285
+TNS   : -56.540
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'adio_codec:SY1|LRCK_1X'
+Slack : -1.285
+TNS   : -20.560
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'adio_codec:SY1|oAUD_BCK'
+Slack : -1.285
+TNS   : -5.140
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'TD_CLK27'
+Slack : 18.423
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 27.481
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'adio_codec:SY1|LRCK_1X'
+Slack : -3.429
+TNS   : -51.216
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -0.733
+TNS   : -13.058
+
+Type  : Fast 1200mV 0C Model Setup 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : -0.655
+TNS   : -21.892
+
+Type  : Fast 1200mV 0C Model Setup 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.452
+TNS   : -0.895
+
+Type  : Fast 1200mV 0C Model Setup 'keyboardinterface:KB1|tempclock'
+Slack : -0.448
+TNS   : -7.980
+
+Type  : Fast 1200mV 0C Model Setup 'adio_codec:SY1|oAUD_BCK'
+Slack : 0.408
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : -0.265
+TNS   : -0.516
+
+Type  : Fast 1200mV 0C Model Hold 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : -0.109
+TNS   : -0.208
+
+Type  : Fast 1200mV 0C Model Hold 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : 0.173
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'adio_codec:SY1|oAUD_BCK'
+Slack : 0.179
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'keyboardinterface:KB1|tempclock'
+Slack : 0.183
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'adio_codec:SY1|LRCK_1X'
+Slack : 0.225
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -41.304
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'I2C_AV_Config:CONF1|mI2C_CTRL_CLK'
+Slack : -1.000
+TNS   : -59.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'keyboardinterface:KB1|tempclock'
+Slack : -1.000
+TNS   : -44.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'adio_codec:SY1|LRCK_1X'
+Slack : -1.000
+TNS   : -16.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'adio_codec:SY1|oAUD_BCK'
+Slack : -1.000
+TNS   : -4.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'TD_CLK27'
+Slack : 18.094
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PLL1|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 27.550
+TNS   : 0.000
+
+------------------------------------------------------------

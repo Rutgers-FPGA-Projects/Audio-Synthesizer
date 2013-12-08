@@ -1,0 +1,54 @@
+-- Import logic primitives
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+
+ENTITY synth IS
+port ( AUD_ADCDAT 								 : 	IN std_logic;
+		 AUD_ADCLRCK, AUD_BCLK, AUD_DACLRCK  :		OUT std_logic;
+		 AUD_DACDAT, AUD_XCK 					 : 	OUT std_logic;
+		 SW											 : 	IN std_logic_vector(17 DOWNTO 0);
+		 KEY											 :		IN std_logic_vector(3 downto 0));
+end synth;
+
+ARCHITECTURE Structure of synth is
+	--declare all components to be used
+	--COMPONENT  adio_codec IS
+		--PORT(oAUD_DATA, oAUD_LRCK 	: out std_logic;
+			--  oAUD_BCK					:out std_logic;
+			  --key1_on, key2_on,
+			 -- key3_on, key4_on						: in std_logic;
+			 -- iSrc_Select						: in std_logic_vector(1 DOWNTO 0);				
+
+			--  iCLK_18_4, iRST_N				: in std_logic;
+			  
+			--  sound1, sound2,
+			--  sound3, sound4					:in std_logic_vector(15 DOWNTO 0);
+
+		--	  instru								:in std_logic);
+	--END COMPONENT;
+	
+	SIGNAL AUD_CTRL_CLK : std_logic;
+	
+BEGIN
+					
+					
+						
+	--SY1 : adio_codec PORT MAP(	
+	        
+	--	oAUD_DATA => AUD_DACDAT,
+	--	oAUD_LRCK => AUD_DACLRCK,			
+	--	oAUD_BCK => AUD_BCLK,
+	--	iCLK_18_4 => AUD_CTRL_CLK,
+	--	iRST_N	 => KEY(0),							
+	--	iSrc_Select => "00",
+	--	key1_on => '1',	
+	--	key2_on => '0',
+	--	key3_on => '0',
+	--	key4_on => '0',
+	--	sound1 => SW(15 downto 0),					
+	--	sound2 => (others => '0'),					
+	--	sound3 => (others => '0'),					
+	--	sound4 => (others => '0'),												
+	--	instru => SW(17));
+END STRUCTURE;
